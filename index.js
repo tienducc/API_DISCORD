@@ -1,11 +1,13 @@
 const express = require("express");
+const dotenv = require("dotenv");
+dotenv.config();
 const app = express();
 const port = 3000;
 
 app.use(express.json());
 
 app.get("/", async (req, res) => {
-  const url = "https://sghr2bbz.filter.evo-shield.com/players.json";
+  const url = process.env.API;
   setInterval(async () => {
     try {
       const response = await fetch(url)
